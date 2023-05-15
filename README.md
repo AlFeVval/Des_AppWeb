@@ -11,4 +11,4 @@ incluye el programa y el mensaje ya descifrado como comentario dentro del progra
 
 1. Puedes revisar el codigo en la sección [Script][dirScript]
 
-[dirScript]: https://github.com/AlFeVval/Des_AppWeb/tree/lab3/script "Script source"
+[dirScript]: https://github.com/AlFeVval/Des_AppWeb/tree/lab3/script/caesar.aspx.cs "Script source"
