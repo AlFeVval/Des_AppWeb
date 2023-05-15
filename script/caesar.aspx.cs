@@ -26,19 +26,27 @@ namespace Encryption{
 		}
 		public static string decMsg(string encrypt_Msg, int key)
 		{
+			string customAlphabet = "abcdefghijklmnopqrstuvwxyz ";
 			string deencrypt_Msg = "";
-			foreach(char character in encrypt_Msg){
-				if(char.IsLetter(character)){
-					char decryptedChar = (char)(character-key);
-					if(char.IsLower(character) && decryptedChar < 'a'){
-						decryptedChar = (char)(decryptedChar +26);
+
+			foreach(char character in encrypt_Msg)
+			{
+				if (char.IsLetter(character))
+				{
+					int index = customAlphabet.IndexOf(character);
+					if(index >= 0)
+					{
+						int dencryptIndex = (index - key + customAlphabet.Length) % customAlphabet.Length;
+
+						char decChar = char.IsLower(character)
+						? char.ToLower(customAlphabet[dencryptIndex])
+						: customAlphabet[dencryptIndex];
+
+						deencrypt_Msg += decChar;
 					}
-					else if(char.IsUpper(character) && decryptedChar < 'A'){
-						decryptedChar = (char)(decryptedChar+26);
-					}
-					deencrypt_Msg +=decryptedChar;
 				}
-				else{
+				else
+				{
 					deencrypt_Msg += character;
 				}
 			}
